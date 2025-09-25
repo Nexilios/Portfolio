@@ -109,7 +109,7 @@ const artCollections = {
       },
       {
         title: "Roman Architecture - No Lines - High Contrast - AgX",
-        image: `${ASSET_BASE}/arts/Roman Architecture - AgX - High - No Lines - Rev2.webp`,
+        image: `${ASSET_BASE}/arts/romanarchitecture/Roman Architecture - AgX - High - No Lines - Rev2.webp`,
       },
     ],
   },
@@ -138,6 +138,56 @@ const artCollections = {
       {
         title: "Modern Bedroom - EVEE - High Contrast - Filmic",
         image: `${ASSET_BASE}/arts/bedroom1/bedroom1 - Evee - Filmic - High.webp`,
+      },
+    ],
+  },
+  homeoffice: {
+    title: "Home Office",
+    coverImage: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Medium High Contrast.webp`,
+    items: [
+      {
+        title: "Home Office - Cycles - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Medium High Contrast.webp`,
+      },
+      {
+        title: "Home Office - Cycles - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Base Contrast.webp`,
+      },
+      {
+        title: "Home Office - EVEE - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Evee - AgX - Base Contrast.webp`,
+      },
+    ],
+  },
+  bedroom2: {
+    title: "Cozy Bedroom",
+    coverImage: `${ASSET_BASE}/arts/bedroom2/bedroom2 - Cycles - Agx - Medium High.webp`,
+    items: [
+      {
+        title: "Cozy Bedroom - Cycles - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/bedroom2/bedroom2 - Cycles - Agx - Medium High.webp`,
+      },
+    ],
+  },
+  cloud66: {
+    title: "Cloud 66",
+    coverImage: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - Filmic.webp`,
+    items: [
+      {
+        title: "Cloud 66 - Cycles - Filmic",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - Filmic.webp`,
+      },
+      {
+        title: "Cloud 66 - Cycles - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - AgX - High Contrast.webp`,
+      },
+      {
+        title: "Cloud 66 - Cycles - AgX",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - AgX.webp`,
+      },
+      {
+        title: "Cloud 66 - EVEE - Filmic",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Evee - Filmic.webp`,
       },
     ],
   },
