@@ -216,23 +216,39 @@ nav {
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+  font-weight: 600; /* Added subtle weight for better look */
 }
 
+/* --- UPDATED BUTTON STYLES (Sleeker Glow) --- */
 .btn-primary {
+  /* View My Games - Filled Gradient with Glow */
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); /* Subtle glow */
+  border: 2px solid transparent; /* Ensure equal height */
 }
 
 .btn-secondary {
+  /* See 3D Art - Ghost Button with Primary Color */
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
 }
 
-.btn:hover {
+.btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6),
+    0 0 30px rgba(99, 102, 241, 0.8); /* Enhanced glow on hover */
 }
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  color: white;
+  background: var(--primary-dark); /* Solid background on hover */
+  border-color: var(--primary-dark);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3), 0 0 20px var(--primary); /* Subtle glow */
+}
+/* --- END UPDATED BUTTON STYLES --- */
 
 .floating-shapes {
   position: absolute;
@@ -331,14 +347,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary); /* Base color for the icons */
+  color: var(--primary);
   text-decoration: none;
   transition: all 0.3s;
-  /* Removed font-size for emoticons */
 }
 
 .social-link svg {
-  fill: currentColor; /* Ensures the SVG inherits the 'color' from the parent 'a' tag */
+  fill: currentColor;
   width: 20px;
   height: 20px;
   transition: fill 0.3s;
@@ -346,7 +361,7 @@ footer {
 
 .social-link:hover {
   background: var(--primary);
-  color: white; /* Changes the 'currentColor' for the SVG on hover */
+  color: white;
   transform: translateY(-3px) rotate(360deg);
 }
 
@@ -590,7 +605,7 @@ footer {
   justify-content: flex-end; /* Push content to bottom for a clean look */
   cursor: pointer;
   transition: all 0.3s;
-  border: 3px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   position: relative;
   overflow: hidden;
   padding: 1rem;
@@ -616,6 +631,7 @@ footer {
   font-weight: bold;
   text-align: center;
   width: calc(100% - 2rem);
+  color: white;
   transition: background 0.3s;
 }
 
@@ -633,11 +649,11 @@ footer {
 }
 
 .art-card:hover::before {
-  opacity: 0.8;
+  opacity: 0.8; /* Dimmed hover overlay */
 }
 
 .art-card::before {
-  content: "";
+  content: ""; /* Removed emoji, using gradient overlay */
   position: absolute;
   top: 0;
   left: 0;
@@ -751,8 +767,6 @@ footer {
   color: var(--accent);
 }
 
-/* Removed Contact Page styles */
-
 /* Page Headers */
 .page-header {
   text-align: center;
@@ -787,9 +801,16 @@ footer {
     font-size: 1.2rem;
   }
 
+  /* New mobile button styles */
   .hero-buttons {
     flex-direction: column;
+    width: 80%; /* Constrain width */
+    margin: 0 auto;
   }
+  .btn {
+    width: 100%;
+  }
+  /* End new mobile button styles */
 
   .showcase-grid,
   .art-grid {
