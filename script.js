@@ -287,7 +287,7 @@ function renderArtGrid() {
 
     card.innerHTML = `
             <img src="${collection.coverImage}" alt="${collection.title} Cover">
-            <span style="color: var(--primary); font-size: 1.2rem;">${collection.title}</span>
+            <span style="font-size: 1.2rem;">${collection.title}</span>
         `;
     container.appendChild(card);
   });

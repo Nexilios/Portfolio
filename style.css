@@ -631,7 +631,7 @@ footer {
   font-weight: bold;
   text-align: center;
   width: calc(100% - 2rem);
-  color: white;
+  color: white !important;
   transition: background 0.3s;
 }
 
