@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #e2e8f0;
+            --text: #cbd5e1;
+            --accent: #f97316;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Home Page */
+        .hero {
+            height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.3s forwards;
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(30px); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            top: 50%;
+            right: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(-20px, 20px) rotate(180deg); }
+            75% { transform: translate(-30px, -20px) rotate(270deg); }
+        }
+
+        /* Game Showcase */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+
+        .game-card:hover .game-thumbnail {
+            transform: scale(1.1);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.5s;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .game-description {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .game-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        /* Game Detail Page */
+        .game-detail {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .game-banner {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-banner::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+        }
+
+        .game-detail-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .game-main {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .game-sidebar {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            height: fit-content;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .screenshot {
+            height: 150px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .back-btn {
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        /* 3D Art Showcase */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .art-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .art-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+            border-color: var(--primary);
+        }
+
+        .art-card:hover::before {
+            opacity: 1;
+        }
+
+        .art-card::before {
+            content: '🎨';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Carousel Modal */
+        .carousel-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .carousel-image {
+            width: 800px;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(99, 102, 241, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: -70px;
+        }
+
+        .carousel-next {
+            right: -70px;
+        }
+
+        .carousel-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-close:hover {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        /* Contact Page */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px) rotate(360deg);
+        }
+
+        /* Page Headers */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .showcase-grid,
+            .art-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-detail-content {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-prev,
+            .carousel-next {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="navigateTo('home')">GameDev Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="navigateTo('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="navigateTo('games')" class="nav-link">Games</a></li>
+                <li><a href="#" onclick="navigateTo('art')" class="nav-link">3D Art</a></li>
+                <li><a href="#" onclick="navigateTo('contact')" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Game Developer & 3D Artist</h1>
+                <p>Creating immersive experiences through code and art</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="navigateTo('games')" class="btn btn-primary">View My Games</a>
+                    <a href="#" onclick="navigateTo('art')" class="btn btn-secondary">See 3D Art</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Showcase Page -->
+    <div id="games" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Game Showcase</h1>
+                <p>Explore my collection of games and interactive experiences</p>
+            </div>
+            <div class="showcase-grid">
+                <!-- Game Cards -->
+                <div class="game-card" onclick="showGameDetail('game1')">
+                    <div class="game-thumbnail">Space Odyssey</div>
+                    <div class="game-info">
+                        <div class="game-title">Space Odyssey</div>
+                        <div class="game-description">An epic space adventure with stunning visuals and engaging gameplay mechanics.</div>
+                        <div class="game-tags">
+                            <span class="tag">Action</span>
+                            <span class="tag">Sci-Fi</span>
+                            <span class="tag">Unity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game2')">
+                    <div class="game-thumbnail">Mystic Realms</div>
+                    <div class="game-info">
+                        <div class="game-title">Mystic Realms</div>
+                        <div class="game-description">A fantasy RPG with deep storytelling and immersive world-building.</div>
+                        <div class="game-tags">
+                            <span class="tag">RPG</span>
+                            <span class="tag">Fantasy</span>
+                            <span class="tag">Unreal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game3')">
+                    <div class="game-thumbnail">Cyber Runner</div>
+                    <div class="game-info">
+                        <div class="game-title">Cyber Runner</div>
+                        <div class="game-description">Fast-paced cyberpunk platformer with procedural generation.</div>
+                        <div class="game-tags">
+                            <span class="tag">Platformer</span>
+                            <span class="tag">Cyberpunk</span>
+                            <span class="tag">Godot</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game4')">
+                    <div class="game-thumbnail">Puzzle Mind</div>
+                    <div class="game-info">
+                        <div class="game-title">Puzzle Mind</div>
+                        <div class="game-description">A mind-bending puzzle game that challenges your logic and creativity.</div>
+                        <div class="game-tags">
+                            <span class="tag">Puzzle</span>
+                            <span class="tag">Casual</span>
+                            <span class="tag">Unity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Detail Page -->
+    <div id="gameDetail" class="page">
+        <div class="container">
+            <a href="#" onclick="navigateTo('games')" class="back-btn">← Back to Games</a>
+            <div class="game-detail">
+                <div class="game-banner" id="gameBanner">Game Title</div>
+                <div class="game-detail-content">
+                    <div class="game-main">
+                        <h2 id="gameTitle">Game Title</h2>
+                        <p id="gameDescription">Detailed game description will appear here...</p>
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Screenshots</h3>
+                        <div class="screenshots">
+                            <div class="screenshot">Screenshot 1</div>
+                            <div class="screenshot">Screenshot 2</div>
+                            <div class="screenshot">Screenshot 3</div>
+                            <div class="screenshot">Screenshot 4</div>
+                        </div>
+                    </div>
+                    <div class="game-sidebar">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Download</h3>
+                        <a href="#" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Download for Windows</a>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-bottom: 1rem;">Download for Mac</a>
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Play in Browser</a>
+                        
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Details</h3>
+                        <p style="margin-bottom: 0.5rem;"><strong>Platform:</strong> PC, Mac, Web</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Engine:</strong> Unity 2022</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Released:</strong> 2024</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Players:</strong> Single-player</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Art Showcase Page -->
+    <div id="art" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h1>3D Art Gallery</h1>
+                <p>Browse through my 3D modeling and digital art portfolio</p>
+            </div>
+            <div class="art-grid">
+                <div class="art-card" onclick="openCarousel(0)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Character Model 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(1)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Environment Art 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(2)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Weapon Design 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(3)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Vehicle Model 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(4)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Creature Design 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(5)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Architecture 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(6)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Props Collection 1</span>
+                </div>
+                <div class="art-card" onclick="openCarousel(7)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">Character Model 2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Get In Touch</h1>
+                <p>Let's create something amazing together</p>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" title="GitHub">📦</a>
+                <a href="#" class="social-link" title="Twitter">🐦</a>
+                <a href="#" class="social-link" title="LinkedIn">💼</a>
+                <a href="#" class="social-link" title="ArtStation">🎨</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Modal -->
+    <div id="carouselModal" class="carousel-modal">
+        <div class="carousel-container">
+            <button class="carousel-close" onclick="closeCarousel()">×</button>
+            <button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">‹</button>
+            <div class="carousel-image" id="carouselImage">3D Artwork</div>
+            <button class="carousel-btn carousel-next" onclick="changeSlide(1)">›</button>
+        </div>
+    </div>
+
+    <script>
+        // Store current state
+        let currentPage = 'home';
+        let currentGame = null;
+        let currentArtIndex = 0;
+        
+        // Game data
+        const gameData = {
+            game1: {
+                title: 'Space Odyssey',
+                description: 'Space Odyssey is an epic space adventure that takes players on a journey through the cosmos. With stunning visual effects, engaging gameplay mechanics, and a compelling storyline, players will explore distant galaxies, engage in space battles, and uncover the mysteries of the universe. The game features procedurally generated star systems, customizable spacecraft, and a dynamic economy system that responds to player actions.',
+                banner: 'Space Odyssey'
+            },
+            game2: {
+                title: 'Mystic Realms',
+                description: 'Mystic Realms is a fantasy RPG that immerses players in a richly detailed world filled with magic, mystery, and adventure. Create your character from multiple classes, each with unique abilities and playstyles. Explore vast landscapes, from enchanted forests to ancient dungeons, while uncovering a deep narrative that adapts to your choices. The game features a complex magic system, crafting mechanics, and meaningful character progression.',
+                banner: 'Mystic Realms'
+            },
+            game3: {
+                title: 'Cyber Runner',
+                description: 'Cyber Runner is a fast-paced cyberpunk platformer set in a neon-lit dystopian future. Wall-run, double-jump, and dash through procedurally generated levels while avoiding obstacles and enemies. The game features a synthwave soundtrack, stunning visual effects, and increasingly challenging gameplay that will test your reflexes. Collect upgrades to enhance your abilities and compete for high scores on global leaderboards.',
+                banner: 'Cyber Runner'
+            },
+            game4: {
+                title: 'Puzzle Mind',
+                description: 'Puzzle Mind challenges players with increasingly complex puzzles that blend logic, spatial reasoning, and creative thinking. Each level introduces new mechanics and concepts, building upon previous challenges to create a satisfying learning curve. The minimalist art style and ambient soundtrack create a relaxing atmosphere perfect for focused problem-solving. With over 100 handcrafted levels and a level editor for community content.',
+                banner: 'Puzzle Mind'
+            }
+        };
+
+        // Art data
+        const artworks = [
+            'Character Model 1',
+            'Environment Art 1',
+            'Weapon Design 1',
+            'Vehicle Model 1',
+            'Creature Design 1',
+            'Architecture 1',
+            'Props Collection 1',
+            'Character Model 2'
+        ];
+
+        // Navigation function
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(page).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.textContent.toLowerCase().includes(page) || 
+                    (page === 'home' && link.textContent === 'Home') ||
+                    (page === 'games' && link.textContent === 'Games') ||
+                    (page === 'art' && link.textContent === '3D Art') ||
+                    (page === 'contact' && link.textContent === 'Contact')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            currentPage = page;
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show game detail
+        function showGameDetail(gameId) {
+            currentGame = gameId;
+            const game = gameData[gameId];
+            
+            // Update game detail page content
+            document.getElementById('gameBanner').textContent = game.banner;
+            document.getElementById('gameTitle').textContent = game.title;
+            document.getElementById('gameDescription').textContent = game.description;
+            
+            // Navigate to game detail page
+            navigateTo('gameDetail');
+        }
+
+        // Carousel functions
+        function openCarousel(index) {
+            currentArtIndex = index;
+            updateCarousel();
+            document.getElementById('carouselModal').classList.add('active');
+        }
+
+        function closeCarousel() {
+            document.getElementById('carouselModal').classList.remove('active');
+        }
+
+        function changeSlide(direction) {
+            currentArtIndex += direction;
+            if (currentArtIndex < 0) {
+                currentArtIndex = artworks.length - 1;
+            } else if (currentArtIndex >= artworks.length) {
+                currentArtIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            document.getElementById('carouselImage').textContent = artworks[currentArtIndex];
+        }
+
+        // Handle contact form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // In a real application, you would send this data to a server
+            // For GitHub Pages, you might use a service like Formspree or EmailJS
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close carousel on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCarousel();
+            }
+            if (document.getElementById('carouselModal').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    changeSlide(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeSlide(1);
+                }
+            }
+        });
+
+        // Close carousel on background click
+        document.getElementById('carouselModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('carouselModal')) {
+                closeCarousel();
+            }
+        });
+
+        // Add smooth page transitions
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animation to elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe game cards and art cards
+            document.querySelectorAll('.game-card, .art-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page) {
+                navigateTo(e.state.page);
+            }
+        });
+
+        // Initialize
+        history.pushState({ page: 'home' }, '', '#home');
+    </script>
+</body>
+</html>
