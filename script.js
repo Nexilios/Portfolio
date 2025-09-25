@@ -5,7 +5,7 @@ let currentArtCollectionId = null; // ID of the currently open art collection
 let currentArtIndex = 0; // Index within the current collection
 
 // Base path for assets
-const ASSET_BASE = "/assets";
+const ASSET_BASE = "./assets";
 
 // Game data (includes image paths)
 const gameData = {
