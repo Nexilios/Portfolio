@@ -285,10 +285,20 @@ function renderArtGrid() {
     card.className = "art-card";
     card.onclick = () => openCarousel(id);
 
-    card.innerHTML = `
-            <img src="${collection.coverImage}" alt="${collection.title} Cover">
-            <span style="font-size: 1.2rem;">${collection.title}</span>
-        `;
+    // Create image element
+    const img = document.createElement("img");
+    img.src = collection.coverImage;
+    img.alt = `${collection.title} Cover`;
+
+    // Create title element with proper CSS class
+    const title = document.createElement("span");
+    title.className = "art-card-title"; // Using CSS class instead of inline styles
+    title.textContent = collection.title;
+
+    // Append elements to card
+    card.appendChild(img);
+    card.appendChild(title);
+
     container.appendChild(card);
   });
 }
@@ -350,12 +360,6 @@ function updateCarousel() {
   document.getElementById("carouselContentText").textContent =
     currentItem.title;
 }
-
-// --- FORM HANDLER (Removed, but keeping a placeholder for `handleSubmit` if needed elsewhere) ---
-// function handleSubmit(event) {
-//     // Removed form submission logic as contact page is removed
-//     event.preventDefault();
-// }
 
 // --- GLOBAL EVENT LISTENERS AND INITIALIZATION ---
 
