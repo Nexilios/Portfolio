@@ -636,19 +636,6 @@ footer {
   transition: background 0.3s;
 }
 
-/* .art-card span {
-  position: relative;
-  z-index: 1;
-  background: rgba(15, 23, 42, 0.8);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  text-align: center;
-  width: calc(100% - 2rem);
-  color: white !important;
-  transition: background 0.3s;
-} */
-
 .art-card:hover {
   transform: scale(1.05); /* Removed rotation */
   box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
