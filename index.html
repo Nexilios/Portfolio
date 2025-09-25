@@ -1,397 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Game Developer Portfolio
-  </title>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
-  <!-- Navigation -->
-  <nav>
-   <div class="nav-container">
-    <div class="logo" onclick="navigateTo('home')">
-     GameDev Portfolio
-    </div>
-    <ul class="nav-links">
-     <li>
-      <a class="nav-link active" href="#" onclick="navigateTo('home')">
-       Home
-      </a>
-     </li>
-     <li>
-      <a class="nav-link" href="#" onclick="navigateTo('games')">
-       Games
-      </a>
-     </li>
-     <li>
-      <a class="nav-link" href="#" onclick="navigateTo('art')">
-       3D Art
-      </a>
-     </li>
-     <li>
-      <a class="nav-link" href="#" onclick="navigateTo('contact')">
-       Contact
-      </a>
-     </li>
-    </ul>
-   </div>
-  </nav>
-  <!-- Home Page -->
-  <div class="page active" id="home">
-   <div class="hero">
-    <div class="floating-shapes">
-     <div class="shape">
-     </div>
-     <div class="shape">
-     </div>
-     <div class="shape">
-     </div>
-    </div>
-    <div class="hero-content">
-     <h1>
-      Game Developer &amp; 3D Artist
-     </h1>
-     <p>
-      Creating immersive experiences through code and art
-     </p>
-     <div class="hero-buttons">
-      <a class="btn btn-primary" href="#" onclick="navigateTo('games')">
-       View My Games
-      </a>
-      <a class="btn btn-secondary" href="#" onclick="navigateTo('art')">
-       See 3D Art
-      </a>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- Game Showcase Page -->
-  <div class="page" id="games">
-   <div class="container">
-    <div class="page-header">
-     <h1>
-      Game Showcase
-     </h1>
-     <p>
-      Explore my collection of games and interactive experiences
-     </p>
-    </div>
-    <div class="showcase-grid">
-     <!-- Game Cards -->
-     <div class="game-card" onclick="showGameDetail('game1')">
-      <div class="game-thumbnail">
-       Space Odyssey
-      </div>
-      <div class="game-info">
-       <div class="game-title">
-        Space Odyssey
-       </div>
-       <div class="game-description">
-        An epic space adventure with stunning visuals and engaging gameplay mechanics.
-       </div>
-       <div class="game-tags">
-        <span class="tag">
-         Action
-        </span>
-        <span class="tag">
-         Sci-Fi
-        </span>
-        <span class="tag">
-         Unity
-        </span>
-       </div>
-      </div>
-     </div>
-     <div class="game-card" onclick="showGameDetail('game2')">
-      <div class="game-thumbnail">
-       Mystic Realms
-      </div>
-      <div class="game-info">
-       <div class="game-title">
-        Mystic Realms
-       </div>
-       <div class="game-description">
-        A fantasy RPG with deep storytelling and immersive world-building.
-       </div>
-       <div class="game-tags">
-        <span class="tag">
-         RPG
-        </span>
-        <span class="tag">
-         Fantasy
-        </span>
-        <span class="tag">
-         Unreal
-        </span>
-       </div>
-      </div>
-     </div>
-     <div class="game-card" onclick="showGameDetail('game3')">
-      <div class="game-thumbnail">
-       Cyber Runner
-      </div>
-      <div class="game-info">
-       <div class="game-title">
-        Cyber Runner
-       </div>
-       <div class="game-description">
-        Fast-paced cyberpunk platformer with procedural generation.
-       </div>
-       <div class="game-tags">
-        <span class="tag">
-         Platformer
-        </span>
-        <span class="tag">
-         Cyberpunk
-        </span>
-        <span class="tag">
-         Godot
-        </span>
-       </div>
-      </div>
-     </div>
-     <div class="game-card" onclick="showGameDetail('game4')">
-      <div class="game-thumbnail">
-       Puzzle Mind
-      </div>
-      <div class="game-info">
-       <div class="game-title">
-        Puzzle Mind
-       </div>
-       <div class="game-description">
-        A mind-bending puzzle game that challenges your logic and creativity.
-       </div>
-       <div class="game-tags">
-        <span class="tag">
-         Puzzle
-        </span>
-        <span class="tag">
-         Casual
-        </span>
-        <span class="tag">
-         Unity
-        </span>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- Game Detail Page -->
-  <div class="page" id="gameDetail">
-   <div class="container">
-    <a class="back-btn" href="#" onclick="navigateTo('games')">
-     ← Back to Games
-    </a>
-    <div class="game-detail">
-     <div class="game-banner" id="gameBanner">
-      Game Title
-     </div>
-     <div class="game-detail-content">
-      <div class="game-main">
-       <h2 id="gameTitle">
-        Game Title
-       </h2>
-       <p id="gameDescription">
-        Detailed game description will appear here...
-       </p>
-       <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
-        Screenshots
-       </h3>
-       <div class="screenshots">
-        <div class="screenshot">
-         Screenshot 1
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Game Developer Portfolio
+    </title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="navigateTo('home')">
+                GameDev Portfolio
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a class="nav-link active" href="#" onclick="navigateTo('home')">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" onclick="navigateTo('games')">
+                        Games
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" onclick="navigateTo('art')">
+                        3D Art
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" onclick="navigateTo('contact')">
+                        Contact
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="screenshot">
-         Screenshot 2
+    </nav>
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="hero">
+            <div class="floating-shapes">
+                <div class="shape">
+                </div>
+                <div class="shape">
+                </div>
+                <div class="shape">
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>
+                    Game Developer &amp; 3D Artist
+                </h1>
+                <p>
+                    Creating immersive experiences through code and art
+                </p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#" onclick="navigateTo('games')">
+                        View My Games
+                    </a>
+                    <a class="btn btn-secondary" href="#" onclick="navigateTo('art')">
+                        See 3D Art
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="screenshot">
-         Screenshot 3
+    </div>
+    <!-- Game Showcase Page -->
+    <div class="page" id="games">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    Game Showcase
+                </h1>
+                <p>
+                    Explore my collection of games and interactive experiences
+                </p>
+            </div>
+            <div class="showcase-grid">
+                <!-- Game Cards -->
+                <div class="game-card" onclick="showGameDetail('game1')">
+                    <div class="game-thumbnail">
+                        Space Odyssey
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">
+                            Space Odyssey
+                        </div>
+                        <div class="game-description">
+                            An epic space adventure with stunning visuals and engaging gameplay mechanics.
+                        </div>
+                        <div class="game-tags">
+                            <span class="tag">
+                                Action
+                            </span>
+                            <span class="tag">
+                                Sci-Fi
+                            </span>
+                            <span class="tag">
+                                Unity
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game2')">
+                    <div class="game-thumbnail">
+                        Mystic Realms
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">
+                            Mystic Realms
+                        </div>
+                        <div class="game-description">
+                            A fantasy RPG with deep storytelling and immersive world-building.
+                        </div>
+                        <div class="game-tags">
+                            <span class="tag">
+                                RPG
+                            </span>
+                            <span class="tag">
+                                Fantasy
+                            </span>
+                            <span class="tag">
+                                Unreal
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game3')">
+                    <div class="game-thumbnail">
+                        Cyber Runner
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">
+                            Cyber Runner
+                        </div>
+                        <div class="game-description">
+                            Fast-paced cyberpunk platformer with procedural generation.
+                        </div>
+                        <div class="game-tags">
+                            <span class="tag">
+                                Platformer
+                            </span>
+                            <span class="tag">
+                                Cyberpunk
+                            </span>
+                            <span class="tag">
+                                Godot
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('game4')">
+                    <div class="game-thumbnail">
+                        Puzzle Mind
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">
+                            Puzzle Mind
+                        </div>
+                        <div class="game-description">
+                            A mind-bending puzzle game that challenges your logic and creativity.
+                        </div>
+                        <div class="game-tags">
+                            <span class="tag">
+                                Puzzle
+                            </span>
+                            <span class="tag">
+                                Casual
+                            </span>
+                            <span class="tag">
+                                Unity
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="screenshot">
-         Screenshot 4
+    </div>
+    <!-- Game Detail Page -->
+    <div class="page" id="gameDetail">
+        <div class="container">
+            <a class="back-btn" href="#" onclick="navigateTo('games')">
+                ← Back to Games
+            </a>
+            <div class="game-detail">
+                <div class="game-banner" id="gameBanner">
+                    Game Title
+                </div>
+                <div class="game-detail-content">
+                    <div class="game-main">
+                        <h2 id="gameTitle">
+                            Game Title
+                        </h2>
+                        <p id="gameDescription">
+                            Detailed game description will appear here...
+                        </p>
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
+                            Screenshots
+                        </h3>
+                        <div class="screenshots">
+                            <div class="screenshot">
+                                Screenshot 1
+                            </div>
+                            <div class="screenshot">
+                                Screenshot 2
+                            </div>
+                            <div class="screenshot">
+                                Screenshot 3
+                            </div>
+                            <div class="screenshot">
+                                Screenshot 4
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-sidebar">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
+                            Download
+                        </h3>
+                        <a class="btn btn-primary" href="#" style="width: 100%; margin-bottom: 1rem;">
+                            Download for Windows
+                        </a>
+                        <a class="btn btn-secondary" href="#" style="width: 100%; margin-bottom: 1rem;">
+                            Download for Mac
+                        </a>
+                        <a class="btn btn-secondary" href="#" style="width: 100%;">
+                            Play in Browser
+                        </a>
+                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
+                            Details
+                        </h3>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>
+                                Platform:
+                            </strong>
+                            PC, Mac, Web
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>
+                                Engine:
+                            </strong>
+                            Unity 2022
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>
+                                Released:
+                            </strong>
+                            2024
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>
+                                Players:
+                            </strong>
+                            Single-player
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-       </div>
-      </div>
-      <div class="game-sidebar">
-       <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
-        Download
-       </h3>
-       <a class="btn btn-primary" href="#" style="width: 100%; margin-bottom: 1rem;">
-        Download for Windows
-       </a>
-       <a class="btn btn-secondary" href="#" style="width: 100%; margin-bottom: 1rem;">
-        Download for Mac
-       </a>
-       <a class="btn btn-secondary" href="#" style="width: 100%;">
-        Play in Browser
-       </a>
-       <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
-        Details
-       </h3>
-       <p style="margin-bottom: 0.5rem;">
-        <strong>
-         Platform:
-        </strong>
-        PC, Mac, Web
-       </p>
-       <p style="margin-bottom: 0.5rem;">
-        <strong>
-         Engine:
-        </strong>
-        Unity 2022
-       </p>
-       <p style="margin-bottom: 0.5rem;">
-        <strong>
-         Released:
-        </strong>
-        2024
-       </p>
-       <p style="margin-bottom: 0.5rem;">
-        <strong>
-         Players:
-        </strong>
-        Single-player
-       </p>
-      </div>
-     </div>
     </div>
-   </div>
-  </div>
-  <!-- 3D Art Showcase Page -->
-  <div class="page" id="art">
-   <div class="container">
-    <div class="page-header">
-     <h1>
-      3D Art Gallery
-     </h1>
-     <p>
-      Browse through my 3D modeling and digital art portfolio
-     </p>
+    <!-- 3D Art Showcase Page -->
+    <div class="page" id="art">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    3D Art Gallery
+                </h1>
+                <p>
+                    Browse through my 3D modeling and digital art portfolio
+                </p>
+            </div>
+            <div class="art-grid">
+                <div class="art-card" onclick="openCarousel(0)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Character Model 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(1)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Environment Art 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(2)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Weapon Design 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(3)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Vehicle Model 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(4)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Creature Design 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(5)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Architecture 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(6)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Props Collection 1
+                    </span>
+                </div>
+                <div class="art-card" onclick="openCarousel(7)">
+                    <span style="color: var(--primary); font-size: 1.2rem;">
+                        Character Model 2
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="art-grid">
-     <div class="art-card" onclick="openCarousel(0)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Character Model 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(1)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Environment Art 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(2)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Weapon Design 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(3)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Vehicle Model 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(4)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Creature Design 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(5)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Architecture 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(6)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Props Collection 1
-      </span>
-     </div>
-     <div class="art-card" onclick="openCarousel(7)">
-      <span style="color: var(--primary); font-size: 1.2rem;">
-       Character Model 2
-      </span>
-     </div>
+    <!-- Contact Page -->
+    <div class="page" id="contact">
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    Get In Touch
+                </h1>
+                <p>
+                    Let's create something amazing together
+                </p>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">
+                            Your Name
+                        </label>
+                        <input id="name" name="name" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address
+                        </label>
+                        <input id="email" name="email" required="" type="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">
+                            Subject
+                        </label>
+                        <input id="subject" name="subject" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
+                            Message
+                        </label>
+                        <textarea id="message" name="message" required=""></textarea>
+                    </div>
+                    <button class="submit-btn" type="submit">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            <div class="social-links">
+                <a class="social-link" href="#" title="GitHub">
+                    📦
+                </a>
+                <a class="social-link" href="#" title="Twitter">
+                    🐦
+                </a>
+                <a class="social-link" href="#" title="LinkedIn">
+                    💼
+                </a>
+                <a class="social-link" href="#" title="ArtStation">
+                    🎨
+                </a>
+            </div>
+        </div>
     </div>
-   </div>
-  </div>
-  <!-- Contact Page -->
-  <div class="page" id="contact">
-   <div class="container">
-    <div class="page-header">
-     <h1>
-      Get In Touch
-     </h1>
-     <p>
-      Let's create something amazing together
-     </p>
+    <!-- Carousel Modal -->
+    <div class="carousel-modal" id="carouselModal">
+        <div class="carousel-container">
+            <button class="carousel-close" onclick="closeCarousel()">
+                ×
+            </button>
+            <button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">
+                ‹
+            </button>
+            <div class="carousel-image" id="carouselImage">
+                3D Artwork
+            </div>
+            <button class="carousel-btn carousel-next" onclick="changeSlide(1)">
+                ›
+            </button>
+        </div>
     </div>
-    <div class="contact-form">
-     <form onsubmit="handleSubmit(event)">
-      <div class="form-group">
-       <label for="name">
-        Your Name
-       </label>
-       <input id="name" name="name" required="" type="text"/>
-      </div>
-      <div class="form-group">
-       <label for="email">
-        Email Address
-       </label>
-       <input id="email" name="email" required="" type="email"/>
-      </div>
-      <div class="form-group">
-       <label for="subject">
-        Subject
-       </label>
-       <input id="subject" name="subject" required="" type="text"/>
-      </div>
-      <div class="form-group">
-       <label for="message">
-        Message
-       </label>
-       <textarea id="message" name="message" required=""></textarea>
-      </div>
-      <button class="submit-btn" type="submit">
-       Send Message
-      </button>
-     </form>
-    </div>
-    <div class="social-links">
-     <a class="social-link" href="#" title="GitHub">
-      📦
-     </a>
-     <a class="social-link" href="#" title="Twitter">
-      🐦
-     </a>
-     <a class="social-link" href="#" title="LinkedIn">
-      💼
-     </a>
-     <a class="social-link" href="#" title="ArtStation">
-      🎨
-     </a>
-    </div>
-   </div>
-  </div>
-  <!-- Carousel Modal -->
-  <div class="carousel-modal" id="carouselModal">
-   <div class="carousel-container">
-    <button class="carousel-close" onclick="closeCarousel()">
-     ×
-    </button>
-    <button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">
-     ‹
-    </button>
-    <div class="carousel-image" id="carouselImage">
-     3D Artwork
-    </div>
-    <button class="carousel-btn carousel-next" onclick="changeSlide(1)">
-     ›
-    </button>
-   </div>
-  </div>
-  <script src="script.js">
-  </script>
- </body>
+    <script src="script.js">
+    </script>
+</body>
+
 </html>
