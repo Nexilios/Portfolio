@@ -28,7 +28,7 @@ const gameData = {
     engine: "Unreal Engine 5",
     released: "2022",
     downloads: {
-      windows: "https://your-game-download-link.com/disturbed/windows",
+      windows: "https://neohermitstudio.itch.io/disturbed",
       linux: null,
       mac: null,
     },
