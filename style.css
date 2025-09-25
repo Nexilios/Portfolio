@@ -132,17 +132,26 @@ nav {
 
 /* Home Page */
 .hero {
-  height: calc(100vh - 100px);
+  /* Adjusted height to make space for footer */
+  min-height: calc(100vh - 100px);
   display: flex;
+  flex-direction: column; /* Allow content to stack */
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-bottom: 5rem; /* Padding before footer starts */
 }
 
 .hero-content {
   text-align: center;
   z-index: 2;
+  flex-grow: 1; /* Center vertically within the space before footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .hero h1 {
@@ -287,6 +296,60 @@ nav {
   }
 }
 
+/* Footer Style */
+footer {
+  width: 100%;
+  padding: 3rem 0;
+  background: var(--darker);
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  text-align: center;
+  margin-top: auto; /* Push to bottom of .page#home */
+}
+
+.footer-content h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.footer-content p {
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary); /* Base color for the icons */
+  text-decoration: none;
+  transition: all 0.3s;
+  /* Removed font-size for emoticons */
+}
+
+.social-link svg {
+  fill: currentColor; /* Ensures the SVG inherits the 'color' from the parent 'a' tag */
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  color: white; /* Changes the 'currentColor' for the SVG on hover */
+  transform: translateY(-3px) rotate(360deg);
+}
+
 /* Game Showcase */
 .showcase-grid {
   display: grid;
@@ -311,20 +374,23 @@ nav {
   border-color: var(--primary);
 }
 
-.game-card:hover .game-thumbnail {
+.game-card:hover .game-thumbnail img {
   transform: scale(1.1);
 }
 
 .game-thumbnail {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
+  /* Removed old gradient background */
+  overflow: hidden;
+}
+
+.game-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s;
+  display: block; /* to remove any bottom space */
 }
 
 .game-info {
@@ -366,7 +432,7 @@ nav {
 
 .game-banner {
   height: 400px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  /* background: linear-gradient(135deg, var(--primary), var(--secondary)); Removed old gradient */
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -376,6 +442,35 @@ nav {
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
+}
+
+.game-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-banner .banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-banner .banner-overlay span {
+  z-index: 5; /* Above the pulse effect */
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .game-banner::before {
@@ -441,11 +536,22 @@ nav {
   color: var(--primary);
   cursor: pointer;
   transition: all 0.3s;
+  overflow: hidden; /* For screenshot images */
+}
+
+.screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
 }
 
 .screenshot:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+.screenshot:hover img {
+  transform: scale(1.1);
 }
 
 .back-btn {
@@ -479,30 +585,71 @@ nav {
   );
   border-radius: 1rem;
   display: flex;
+  flex-direction: column; /* To stack image and title */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Push content to bottom for a clean look */
   cursor: pointer;
   transition: all 0.3s;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 3px solid rgba(99, 102, 241, 0.3);
   position: relative;
   overflow: hidden;
+  padding: 1rem;
+}
+
+.art-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.5s;
+}
+
+.art-card span {
+  position: relative;
+  z-index: 1;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  width: calc(100% - 2rem);
+  transition: background 0.3s;
 }
 
 .art-card:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05); /* Removed rotation */
   box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
   border-color: var(--primary);
 }
+.art-card:hover img {
+  transform: scale(1.1);
+}
+.art-card:hover span {
+  background: rgba(99, 102, 241, 0.9);
+  color: white;
+}
 
 .art-card:hover::before {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .art-card::before {
-  content: "🎨";
+  content: "";
   position: absolute;
-  font-size: 3rem;
-  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.9) 0%,
+    transparent 100%
+  );
+  z-index: 0;
+  opacity: 1;
   transition: opacity 0.3s;
 }
 
@@ -529,18 +676,32 @@ nav {
   position: relative;
   max-width: 90%;
   max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-image {
+  /* Dimensions for the container, image will fill it */
   width: 800px;
   height: 600px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: var(--dark);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+  display: block;
 }
 
 .carousel-btn {
@@ -556,6 +717,7 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s;
+  z-index: 2001; /* Above the container */
 }
 
 .carousel-btn:hover {
@@ -581,6 +743,7 @@ nav {
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.3s;
+  z-index: 2002;
 }
 
 .carousel-close:hover {
@@ -588,95 +751,7 @@ nav {
   color: var(--accent);
 }
 
-/* Contact Page */
-.contact-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  background: rgba(30, 41, 59, 0.5);
-  padding: 3rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 1rem;
-  transition: all 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.social-link {
-  width: 60px;
-  height: 60px;
-  background: rgba(99, 102, 241, 0.2);
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  text-decoration: none;
-  transition: all 0.3s;
-  font-size: 1.5rem;
-}
-
-.social-link:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-5px) rotate(360deg);
-}
+/* Removed Contact Page styles */
 
 /* Page Headers */
 .page-header {
@@ -725,8 +800,32 @@ nav {
     grid-template-columns: 1fr;
   }
 
-  .carousel-prev,
+  .carousel-container {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .carousel-image {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+
   .carousel-next {
-    display: none;
+    right: 10px;
+  }
+
+  .carousel-close {
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
   }
 }
