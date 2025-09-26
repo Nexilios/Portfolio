@@ -1,8 +1,8 @@
 // Store current state
 let currentPage = "home";
 let currentGame = null;
-let currentArtCollectionId = null; // ID of the currently open art collection
-let currentArtIndex = 0; // Index within the current collection
+let currentArtCollectionId = null;
+let currentArtIndex = 0;
 
 // Base path for assets
 const ASSET_BASE = "./assets";
@@ -296,6 +296,7 @@ function renderGameScreenshots(gameId) {
   game.screenshots.forEach((src, index) => {
     const screenshotDiv = document.createElement("div");
     screenshotDiv.className = "screenshot";
+    screenshotDiv.onclick = () => openGameScreenshotCarousel(gameId, index);
     screenshotDiv.innerHTML = `<img src="${src}" alt="${
       game.title
     } Screenshot ${index + 1}">`;
@@ -464,6 +465,38 @@ function openCarousel(collectionId) {
 
   const collection = artCollections[currentArtCollectionId];
   const isSingleItem = collection.items.length <= 1;
+  document.querySelector(".carousel-prev").style.display = isSingleItem
+    ? "none"
+    : "block";
+  document.querySelector(".carousel-next").style.display = isSingleItem
+    ? "none"
+    : "block";
+}
+
+function openGameScreenshotCarousel(gameId, startIndex = 0) {
+  const game = gameData[gameId];
+  if (!game || !game.screenshots || game.screenshots.length === 0) return;
+
+  // Convert game screenshots to carousel format
+  currentArtCollectionId = gameId;
+  const gameCollection = {
+    title: game.title + " Screenshots",
+    items: game.screenshots.map((src, index) => ({
+      title: `${game.title} Screenshot ${index + 1}`,
+      image: src,
+    })),
+  };
+
+  // Temporarily store this collection
+  artCollections[gameId] = gameCollection;
+
+  currentArtIndex = startIndex;
+  updateCarousel();
+
+  const carouselModal = document.getElementById("carouselModal");
+  carouselModal.classList.add("active");
+
+  const isSingleItem = gameCollection.items.length <= 1;
   document.querySelector(".carousel-prev").style.display = isSingleItem
     ? "none"
     : "block";
