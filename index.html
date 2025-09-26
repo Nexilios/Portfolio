@@ -4,193 +4,138 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-        Game Developer Portfolio
-    </title>
+    <title>Game Developer Portfolio</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo" onclick="navigateTo('home')">
+            <div class="logo" data-navigate="home">
                 Nicholas R. | Portfolio
             </div>
             <ul class="nav-links">
-                <li>
-                    <a class="nav-link active" href="#" onclick="navigateTo('home')">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#" onclick="navigateTo('games')">
-                        Games
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#" onclick="navigateTo('art')">
-                        3D Render
-                    </a>
-                </li>
+                <li><a class="nav-link active" href="#home" data-navigate="home">Home</a></li>
+                <li><a class="nav-link" href="#games" data-navigate="games">Games</a></li>
+                <li><a class="nav-link" href="#art" data-navigate="art">3D Render</a></li>
             </ul>
         </div>
     </nav>
-    <div class="page active" id="home">
-        <div class="hero">
-            <div class="floating-shapes">
-                <div class="shape">
-                </div>
-                <div class="shape">
-                </div>
-                <div class="shape">
-                </div>
-            </div>
-            <div class="hero-content">
-                <h1>
-                    Game Developer &amp; 3D Artist
-                </h1>
-                <p>
-                    Creating immersive experiences through code and art
-                </p>
-                <div class="hero-buttons">
-                    <a class="btn btn-secondary" href="#" onclick="navigateTo('games')">
-                        Video Games
-                    </a>
-                    <a class="btn btn-secondary" href="#" onclick="navigateTo('art')">
-                        3D Render
-                    </a>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="container footer-content">
-                <h2>Contact Me</h2>
-                <p><strong>Phone:</strong> +62 821 3637 6510</p>
-                <p><strong>Email:</strong> nicho.reynaldo.work@proton.me</p>
-                <div class="social-links">
-                    <a class="social-link" href="https://github.com/Nexilios" title="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.808 8.207 11.387.599.111.793-.261.793-.577 0-.285-.011-1.042-.017-2.049-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.334-1.756-1.334-1.756-1.087-.74.084-.725.084-.725 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.998.108-.775.42-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.045.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.652 1.652.241 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.922.43.376.823 1.102.823 2.222 0 1.604-.015 2.898-.015 3.286 0 .315.194.694.801.576C20.566 21.808 24 17.302 24 12 24 5.373 18.627 0 12 0Z" />
-                        </svg>
-                    </a>
-                    <a class="social-link" href="https://www.linkedin.com/in/nicholas-reynaldo" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a class="social-link" href="https://chronexy.artstation.com" title="ArtStation">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path
-                                d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <div class="page" id="games">
-        <div class="container">
-            <div class="page-header">
-                <h1>
-                    Game Showcase
-                </h1>
-                <p>
-                    Try out my games!
-                </p>
-            </div>
-            <div class="showcase-grid" id="gameGrid">
-            </div>
-        </div>
-    </div>
-    <div class="page" id="gameDetail">
-        <div class="container">
-            <a class="back-btn" href="#" onclick="navigateTo('games')">
-                ← Back to Games
-            </a>
-            <div class="game-detail">
-                <div class="game-banner" id="gameBanner">
-                    <img id="gameBannerImage" src="placeholder.jpg" alt="Game Banner"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    <div class="banner-overlay">
-                    </div>
-                </div>
-                <div class="game-detail-content">
-                    <div class="game-main">
-                        <h2 id="gameTitle">
-                            Game Title
-                        </h2>
-                        <p id="gameDescription">
-                            Detailed game description will appear here...
-                        </p>
-                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
-                            Screenshots
-                        </h3>
-                        <div class="screenshots" id="gameScreenshots">
-                        </div>
-                    </div>
-                    <div class="game-sidebar">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
-                            Download
-                        </h3>
-                        <div id="downloadButtonsContainer">
-                            <a class="btn btn-primary" href="#"
-                                style="width: 100%; margin-bottom: 1rem; display: none;">
-                                Download
-                            </a>
-                        </div>
 
-                        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">
-                            Details
-                        </h3>
-                        <p id="platformDetail" style="margin-bottom: 0.5rem;">
-                        </p>
-                        <p id="engineDetail" style="margin-bottom: 0.5rem;">
-                        </p>
-                        <p id="releasedDetail" style="margin-bottom: 0.5rem;">
-                        </p>
+    <main>
+        <div class="page active" id="home">
+            <div class="hero">
+                <div class="floating-shapes">
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                </div>
+                <div class="hero-content">
+                    <h1>Game Developer &amp; 3D Artist</h1>
+                    <p>Creating immersive experiences through code and art</p>
+                    <div class="hero-buttons">
+                        <a class="btn btn-secondary" href="#games" data-navigate="games">Video Games</a>
+                        <a class="btn btn-secondary" href="#art" data-navigate="art">3D Render</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="page" id="art">
-        <div class="container">
-            <div class="page-header">
-                <h1>
-                    3D Render Gallery
-                </h1>
-                <p>
-                    Browse through my 3D modeling render
-                </p>
-            </div>
-            <div class="art-grid" id="artGrid">
+
+        <div class="page" id="games">
+            <div class="container">
+                <section class="page-header">
+                    <h1>Game Showcase</h1>
+                    <p>Try out my games!</p>
+                </section>
+                <div class="showcase-grid" id="gameGrid">
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="page" id="gameDetail">
+            <div class="container">
+                <a class="back-btn" href="#games" data-navigate="games">← Back to Games</a>
+                <div class="game-detail">
+                    <div class="game-banner">
+                        <img id="gameBannerImage" src="" alt="Game Banner">
+                    </div>
+                    <div class="game-detail-content">
+                        <div class="game-main">
+                            <h2 id="gameTitle">Game Title</h2>
+                            <p id="gameDescription">Detailed game description will appear here...</p>
+                            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Screenshots</h3>
+                            <div class="screenshots" id="gameScreenshots">
+                            </div>
+                        </div>
+                        <div class="game-sidebar">
+                            <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Download</h3>
+                            <div id="downloadButtonsContainer"></div>
+                            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Details</h3>
+                            <p id="platformDetail" style="margin-bottom: 0.5rem;"></p>
+                            <p id="engineDetail" style="margin-bottom: 0.5rem;"></p>
+                            <p id="releasedDetail" style="margin-bottom: 0.5rem;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="art">
+            <div class="container">
+                <section class="page-header">
+                    <h1>3D Render Gallery</h1>
+                    <p>Browse through my 3D modeling render</p>
+                </section>
+                <div class="art-grid" id="artGrid">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <h2>Contact Me</h2>
+            <p><strong>Phone:</strong> +62 821 3637 6510</p>
+            <p><strong>Email:</strong> nicho.reynaldo.work@proton.me</p>
+            <div class="social-links">
+                <a class="social-link" href="https://github.com/Nexilios" title="GitHub" target="_blank"
+                    rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.808 8.207 11.387.599.111.793-.261.793-.577 0-.285-.011-1.042-.017-2.049-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.334-1.756-1.334-1.756-1.087-.74.084-.725.084-.725 1.205.084 1.839 1.237 1.839 1.237 1.07 1.836 2.809 1.305 3.492.998.108-.775.42-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.045.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.652 1.652.241 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.922.43.376.823 1.102.823 2.222 0 1.604-.015 2.898-.015 3.286 0 .315.194.694.801.576C20.566 21.808 24 17.302 24 12 24 5.373 18.627 0 12 0Z" />
+                    </svg>
+                </a>
+                <a class="social-link" href="https://www.linkedin.com/in/nicholas-reynaldo" title="LinkedIn"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a class="social-link" href="https://chronexy.artstation.com" title="ArtStation" target="_blank"
+                    rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path
+                            d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 4.858l-5.444 9.428h10.887z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
     <div class="carousel-modal" id="carouselModal">
         <div class="carousel-container">
-            <button class="carousel-close" onclick="closeCarousel()">
-                ×
-            </button>
-            <button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">
-                ‹
-            </button>
-            <div class="carousel-image" id="carouselImage">
-                <img id="carouselContentImage" src="placeholder.jpg" alt="3D Artwork"
-                    style="width: 100%; height: 100%; object-fit: contain;">
-                <span id="carouselContentText"
-                    style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 1.2rem; background: rgba(0,0,0,0.5); padding: 0.25rem 0.5rem; border-radius: 5px;">3D
-                    Artwork Title</span>
+            <button class="carousel-close" data-command="close-carousel">×</button>
+            <button class="carousel-btn carousel-prev" data-command="prev-slide">‹</button>
+            <div class="carousel-image">
+                <img id="carouselContentImage" src="" alt="Artwork">
+                <span id="carouselContentText"></span>
             </div>
-            <button class="carousel-btn carousel-next" onclick="changeSlide(1)">
-                ›
-            </button>
+            <button class="carousel-btn carousel-next" data-command="next-slide">›</button>
         </div>
     </div>
-    <script src="script.js">
-    </script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

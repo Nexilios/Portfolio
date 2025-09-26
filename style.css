@@ -21,11 +21,17 @@ body {
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 /* Navigation */
 nav {
-  position: fixed;
+  position: sticky; /* Changed from fixed for better flow */
   top: 0;
   width: 100%;
   background: rgba(2, 6, 23, 0.95);
@@ -96,16 +102,15 @@ nav {
   color: var(--primary);
 }
 
-.nav-links a:hover:after,
-.nav-links a.active:after {
+.nav-links a.active:after,
+.nav-links a:hover:after {
   width: 100%;
 }
 
 /* Page Content */
 .page {
   display: none;
-  padding-top: 100px;
-  min-height: 100vh;
+  padding-top: 40px; /* Adjusted padding as nav is not fixed */
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -132,26 +137,18 @@ nav {
 
 /* Home Page */
 .hero {
-  /* Adjusted height to make space for footer */
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 80px); /* 100vh minus nav height */
   display: flex;
-  flex-direction: column; /* Allow content to stack */
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-bottom: 5rem; /* Padding before footer starts */
+  padding-bottom: 5rem;
 }
 
 .hero-content {
   text-align: center;
   z-index: 2;
-  flex-grow: 1; /* Center vertically within the space before footer */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 .hero h1 {
@@ -187,13 +184,13 @@ nav {
 }
 
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
   from {
     opacity: 0;
     transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -216,20 +213,17 @@ nav {
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
-  font-weight: 600; /* Added subtle weight for better look */
+  font-weight: 600;
 }
 
-/* --- UPDATED BUTTON STYLES (Sleeker Glow) --- */
 .btn-primary {
-  /* View My Games - Filled Gradient with Glow */
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); /* Subtle glow */
-  border: 2px solid transparent; /* Ensure equal height */
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+  border: 2px solid transparent;
 }
 
 .btn-secondary {
-  /* See 3D Art - Ghost Button with Primary Color */
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
@@ -238,17 +232,16 @@ nav {
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6),
-    0 0 30px rgba(99, 102, 241, 0.8); /* Enhanced glow on hover */
+    0 0 30px rgba(99, 102, 241, 0.8);
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
   color: white;
-  background: var(--primary-dark); /* Solid background on hover */
+  background: var(--primary-dark);
   border-color: var(--primary-dark);
-  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3), 0 0 20px var(--primary); /* Subtle glow */
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3), 0 0 20px var(--primary);
 }
-/* --- END UPDATED BUTTON STYLES --- */
 
 .floating-shapes {
   position: absolute;
@@ -319,7 +312,6 @@ footer {
   background: var(--darker);
   border-top: 1px solid rgba(139, 92, 246, 0.2);
   text-align: center;
-  margin-top: auto; /* Push to bottom of .page#home */
 }
 
 .footer-content h2 {
@@ -356,7 +348,6 @@ footer {
   fill: currentColor;
   width: 20px;
   height: 20px;
-  transition: fill 0.3s;
 }
 
 .social-link:hover {
@@ -380,7 +371,6 @@ footer {
   cursor: pointer;
   transition: all 0.3s;
   border: 1px solid rgba(99, 102, 241, 0.2);
-  position: relative;
 }
 
 .game-card:hover {
@@ -396,7 +386,6 @@ footer {
 .game-thumbnail {
   width: 100%;
   height: 200px;
-  /* Removed old gradient background */
   overflow: hidden;
 }
 
@@ -405,7 +394,6 @@ footer {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
-  display: block; /* to remove any bottom space */
 }
 
 .game-info {
@@ -451,15 +439,8 @@ footer {
 
 .game-banner {
   height: 400px;
-  /* background: linear-gradient(135deg, var(--primary), var(--secondary)); Removed old gradient */
   border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 3rem;
   margin-bottom: 2rem;
-  position: relative;
   overflow: hidden;
 }
 
@@ -469,60 +450,14 @@ footer {
   object-fit: cover;
 }
 
-.game-banner .banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.game-banner .banner-overlay span {
-  z-index: 5; /* Above the pulse effect */
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 3rem;
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.game-banner::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 70%
-  );
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.3;
-  }
-}
-
 .game-detail-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
 }
 
-.game-main {
+.game-main,
+.game-sidebar {
   background: rgba(30, 41, 59, 0.5);
   border-radius: 1rem;
   padding: 2rem;
@@ -530,10 +465,6 @@ footer {
 }
 
 .game-sidebar {
-  background: rgba(30, 41, 59, 0.5);
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 1px solid rgba(99, 102, 241, 0.2);
   height: fit-content;
 }
 
@@ -541,17 +472,11 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .screenshot {
   height: 150px;
-  background: rgba(99, 102, 241, 0.2);
   border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
   cursor: pointer;
   transition: all 0.3s;
   overflow: hidden;
@@ -621,22 +546,12 @@ footer {
 
 .art-card {
   aspect-ratio: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.2),
-    rgba(139, 92, 246, 0.2)
-  );
   border-radius: 1rem;
-  display: flex;
-  flex-direction: column; /* To stack image and title */
-  align-items: center;
-  justify-content: flex-end; /* Push content to bottom for a clean look */
   cursor: pointer;
   transition: all 0.3s;
   border: 1px solid rgba(99, 102, 241, 0.3);
   position: relative;
   overflow: hidden;
-  padding: 1rem;
 }
 
 .art-card img {
@@ -651,38 +566,23 @@ footer {
 }
 
 .art-card-title {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
   background: rgba(15, 23, 42, 0.8);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: bold;
   text-align: center;
-  width: calc(100% - 2rem);
   color: white;
   font-size: 1.2rem;
   transition: background 0.3s;
 }
 
-.art-card:hover {
-  transform: scale(1.05); /* Removed rotation */
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
-  border-color: var(--primary);
-}
-.art-card:hover img {
-  transform: scale(1.1);
-}
-.art-card:hover span {
-  background: rgba(99, 102, 241, 0.9);
-  color: white;
-}
-
-.art-card:hover::before {
-  opacity: 0.8; /* Dimmed hover overlay */
-}
-
-.art-card::before {
-  content: ""; /* Removed emoji, using gradient overlay */
+.art-card::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -693,9 +593,27 @@ footer {
     rgba(15, 23, 42, 0.9) 0%,
     transparent 100%
   );
-  z-index: 0;
+  z-index: 1;
   opacity: 1;
   transition: opacity 0.3s;
+}
+
+.art-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+  border-color: var(--primary);
+}
+
+.art-card:hover img {
+  transform: scale(1.1);
+}
+
+.art-card:hover .art-card-title {
+  background: rgba(99, 102, 241, 0.9);
+}
+
+.art-card:hover::after {
+  opacity: 0.8;
 }
 
 /* Carousel Modal */
@@ -719,34 +637,37 @@ footer {
 
 .carousel-container {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: 90vw;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .carousel-image {
-  /* Dimensions for the container, image will fill it */
-  width: 800px;
-  height: 600px;
-  background: var(--dark);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
+  max-width: 100%;
+  max-height: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 .carousel-image img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 90vh;
   object-fit: contain;
   border-radius: 1rem;
   display: block;
+}
+
+#carouselContentText {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  color: white;
 }
 
 .carousel-btn {
@@ -762,7 +683,7 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s;
-  z-index: 2001; /* Above the container */
+  z-index: 2001;
 }
 
 .carousel-btn:hover {
@@ -773,26 +694,25 @@ footer {
 .carousel-prev {
   left: -70px;
 }
-
 .carousel-next {
   right: -70px;
 }
 
 .carousel-close {
   position: absolute;
-  top: -50px;
-  right: 0;
+  top: -40px;
+  right: -40px;
   background: none;
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
   transition: all 0.3s;
   z-index: 2002;
 }
 
 .carousel-close:hover {
-  transform: scale(1.2);
+  transform: scale(1.2) rotate(90deg);
   color: var(--accent);
 }
 
@@ -800,6 +720,7 @@ footer {
 .page-header {
   text-align: center;
   margin-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 .page-header h1 {
@@ -817,57 +738,38 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .nav-links {
+  nav {
+    padding: 1rem;
+  }
+  .nav-container {
     flex-direction: column;
     gap: 1rem;
   }
-
   .hero h1 {
     font-size: 2.5rem;
   }
-
   .hero p {
     font-size: 1.2rem;
   }
-
-  /* New mobile button styles */
   .hero-buttons {
     flex-direction: column;
-    width: 80%; /* Constrain width */
+    width: 80%;
     margin: 0 auto;
   }
   .btn {
     width: 100%;
   }
-  /* End new mobile button styles */
-
   .showcase-grid,
-  .art-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .art-grid,
   .game-detail-content {
     grid-template-columns: 1fr;
   }
-
-  .carousel-container {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .carousel-image {
-    width: 90vw;
-    height: 70vh;
-  }
-
   .carousel-prev {
     left: 10px;
   }
-
   .carousel-next {
     right: 10px;
   }
-
   .carousel-close {
     top: 10px;
     right: 10px;
@@ -875,6 +777,7 @@ footer {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    font-size: 1.5rem;
     line-height: 40px;
     text-align: center;
   }
