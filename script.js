@@ -21,7 +21,7 @@ const gameData = {
   disturbed: {
     title: "Disturbed",
     description:
-      "An entrance to an old stronghold was found by a group of hikers. Despite villagers' concerns that the fortress is cursed, the local authorities hired an archeology team to investigate the site. Delve deep into the stronghold and uncover the mysteries but don't get complacent, there seems to be an abomination haunting these ruins. DON'T DIE! DON'T GET TRAPPED! CAN YOU ESCAPE?",
+      "An entrance to an old stronghold was found by a group of hikers. Despite villagers' concerns that the fortress is cursed, the local authorities hired an archeology team to investigate the site. Delve deep into the stronghold and uncover the mysteries but don't get complacent, there seems to be an abomination haunting these ruins.\n\n\nDON'T DIE! DON'T GET TRAPPED!\n\nCAN YOU ESCAPE?",
     imagePath: `${ASSET_BASE}/games/disturbed/banner.webp`,
     thumbPath: `${ASSET_BASE}/games/disturbed/banner.webp`,
     platform: "Windows 10/11",
@@ -32,7 +32,15 @@ const gameData = {
       linux: null,
       mac: null,
     },
-    tags: ["Horror", "Survival", "Indie", "Puzzle", "Story", "Single-player"],
+    tags: [
+      "Horror",
+      "Survival",
+      "Indie",
+      "Puzzle",
+      "3D",
+      "Story",
+      "Single-player",
+    ],
     screenshots: [
       `${ASSET_BASE}/games/disturbed/1.webp`,
       `${ASSET_BASE}/games/disturbed/2.webp`,
@@ -42,77 +50,208 @@ const gameData = {
       `${ASSET_BASE}/games/disturbed/6.webp`,
     ],
   },
-  game2: {
-    title: "Mystic Realms",
+  odalevillage: {
+    title: "Odale Village",
     description:
-      "Mystic Realms is a fantasy RPG that immerses players in a richly detailed world filled with magic, mystery, and adventure. Create your character from multiple classes, each with unique abilities and playstyles. Explore vast landscapes, from enchanted forests to ancient dungeons, while uncovering a deep narrative that adapts to your choices. The game features a complex magic system, crafting mechanics, and meaningful character progression.",
-    imagePath: `${ASSET_BASE}/games/mystic-realms/banner.jpg`,
-    thumbPath: `${ASSET_BASE}/games/mystic-realms/thumb.jpg`,
-    platform: "PC, Console",
-    engine: "Unreal Engine 5",
-    released: "TBA",
-    downloads: {
-      windows: null,
-      linux: null,
-      mac: null,
-    }, // Game not released/available for download yet
-    tags: ["RPG", "Fantasy", "Unreal", "Multiplayer"],
-    screenshots: [
-      `${ASSET_BASE}/games/mystic-realms/screen1.jpg`,
-      `${ASSET_BASE}/games/mystic-realms/screen2.jpg`,
-      `${ASSET_BASE}/games/mystic-realms/screen3.jpg`,
-      `${ASSET_BASE}/games/mystic-realms/screen4.jpg`,
-    ],
-  },
-  game3: {
-    title: "Cyber Runner",
-    description:
-      "Cyber Runner is a fast-paced cyberpunk platformer set in a neon-lit dystopian future. Wall-run, double-jump, and dash through procedurally generated levels while avoiding obstacles and enemies. The game features a synthwave soundtrack, stunning visual effects and increasingly challenging gameplay that will test your reflexes. Collect upgrades to enhance your abilities and compete for high scores on global leaderboards.",
-    imagePath: `${ASSET_BASE}/games/cyber-runner/banner.jpg`,
-    thumbPath: `${ASSET_BASE}/games/cyber-runner/thumb.jpg`,
-    platform: "PC, Mobile",
-    engine: "Godot Engine",
+      "Welcome to 🕊️ Ódale Village! A Role-Playing Game to experience the Joys of Living a Simple, Relaxing life in a Beautiful Village.\n\n🏡 Own and live in a Village House!\n👗 Decorate your Avatar from an ever-growing selection of Outfit\n🌾 Become a Farmer, Plant and Harvest crops for Village Food Stock\n🍳 Use the Harvest Stock and become a Chef to Cook your Food\n🪓Become a lumberjack and cut down trees to get Firewood for Village\n🛡️ Become a Guard/Watchmen to Protect & Maintain Peace in the Village\n⚔️ Choose a Quest in Adventurer's Guild to fulfill Village needs (Soon!)\n🐴 Buy, Ride & Keep your Own Horses .\n🙋‍♂️ Socialize & Work with other Villagers to run the Village properly.",
+    imagePath: `${ASSET_BASE}/games/odalevillage/banner.webp`,
+    thumbPath: `${ASSET_BASE}/games/odalevillage/banner.webp`,
+    platform: "PC, Console, Mobile",
+    engine: "Roblox Studio",
     released: "2023",
     downloads: {
-      windows: "https://your-game-download-link.com/cyber-runner/windows",
-      linux: "https://your-game-download-link.com/cyber-runner/linux",
-      mac: "https://your-game-download-link.com/cyber-runner/mac",
-    }, // Multiple platforms available
-    tags: ["Platformer", "Cyberpunk", "Godot", "Single-player"],
-    screenshots: [
-      `${ASSET_BASE}/games/cyber-runner/screen1.jpg`,
-      `${ASSET_BASE}/games/cyber-runner/screen2.jpg`,
-      `${ASSET_BASE}/games/cyber-runner/screen3.jpg`,
-      `${ASSET_BASE}/games/cyber-runner/screen4.jpg`,
-    ],
-  },
-  game4: {
-    title: "Puzzle Mind",
-    description:
-      "Puzzle Mind challenges players with increasingly complex puzzles that blend logic, spatial reasoning, and creative thinking. Each level introduces new mechanics and concepts, building upon previous challenges to create a satisfying learning curve. The minimalist art style and ambient soundtrack create a relaxing atmosphere perfect for focused problem-solving. With over 100 handcrafted levels and a level editor for community content.",
-    imagePath: `${ASSET_BASE}/games/puzzle-mind/banner.jpg`,
-    thumbPath: `${ASSET_BASE}/games/puzzle-mind/thumb.jpg`,
-    platform: "PC, Web",
-    engine: "Unity",
-    released: "2024",
-    downloads: {
-      windows: null,
+      windows: "https://www.roblox.com/games/12391755476/dale-Village-Update",
       linux: null,
       mac: null,
     },
-    tags: ["Puzzle", "Casual", "Unity", "Single-player"],
+    tags: [
+      "Roblox",
+      "RPG",
+      "Fantasy",
+      "Simulator",
+      "3D",
+      "Community",
+      "Multiplayer",
+    ],
     screenshots: [
-      `${ASSET_BASE}/games/puzzle-mind/screen1.jpg`,
-      `${ASSET_BASE}/games/puzzle-mind/screen2.jpg`,
-      `${ASSET_BASE}/games/puzzle-mind/screen3.jpg`,
-      `${ASSET_BASE}/games/puzzle-mind/screen4.jpg`,
+      `${ASSET_BASE}/games/odalevillage/1.webp`,
+      `${ASSET_BASE}/games/odalevillage/2.webp`,
+      `${ASSET_BASE}/games/odalevillage/3.webp`,
+      `${ASSET_BASE}/games/odalevillage/4.webp`,
+      `${ASSET_BASE}/games/odalevillage/5.webp`,
+      `${ASSET_BASE}/games/odalevillage/6.webp`,
+      `${ASSET_BASE}/games/odalevillage/7.webp`,
+      `${ASSET_BASE}/games/odalevillage/8.webp`,
+    ],
+  },
+  buildthebridge: {
+    title: "Build the Bridge",
+    description:
+      "You are trapped on a small island and needs to reach the next island before the current one sinks.",
+    imagePath: `${ASSET_BASE}/games/buildthebridge/banner.webp`,
+    thumbPath: `${ASSET_BASE}/games/buildthebridge/banner.webp`,
+    platform: "PC, Console, Mobile",
+    engine: "Roblox Studio",
+    released: "2024",
+    downloads: {
+      windows: "https://www.roblox.com/games/89489140708330/Build-The-Bridge",
+      linux: null,
+      mac: null,
+    },
+    tags: ["Roblox", "Casual", "Arcade", "3D", "Single-player"],
+    screenshots: [],
+  },
+  foreigndelivery: {
+    title: "Foreign Delivery",
+    description:
+      "You're an alien package delivery guy, deliver the packages as fast as possible to obtain a high score.",
+    imagePath: `${ASSET_BASE}/games/foreigndelivery/banner.webp`,
+    thumbPath: `${ASSET_BASE}/games/foreigndelivery/banner.webp`,
+    platform: "PC",
+    engine: "Godot",
+    released: "2025",
+    downloads: {
+      windows:
+        "https://github.com/Nexilios/SideScrollingDelivery/releases/download/v1.0/DeliveryGame.7z",
+      linux: null,
+      mac: null,
+    },
+    tags: ["Arcade", "Casual", "Godot", "2D", "Side-Scroller", "Single-player"],
+    screenshots: [
+      `${ASSET_BASE}/games/foreigndelivery/1.webp`,
+      `${ASSET_BASE}/games/foreigndelivery/2.webp`,
     ],
   },
 };
 
 // Art data (Collections of artworks)
 const artCollections = {
-  // ... (Art data remains the same)
+  sushi: {
+    title: "Low Poly Sushi",
+    coverImage: `${ASSET_BASE}/arts/sushi/Sushi - High Contrast - AgX.webp`,
+    items: [
+      {
+        title: "Sushi - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/sushi/Sushi - High Contrast - AgX.webp`,
+      },
+      {
+        title: "Sushi - High Contrast - Filmic",
+        image: `${ASSET_BASE}/arts/sushi/Sushi - High Contrast - Filmic.webp`,
+      },
+    ],
+  },
+  orientalgarden: {
+    title: "Oriental Garden",
+    coverImage: `${ASSET_BASE}/arts/orientalchinesegarden/Isometric Chinese Garden - High Contrast - AgX.webp`,
+    items: [
+      {
+        title: "Oriental Garden - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/orientalchinesegarden/Isometric Chinese Garden - High Contrast - AgX.webp`,
+      },
+    ],
+  },
+  donut: {
+    title: "Donut",
+    coverImage: `${ASSET_BASE}/arts/donut/donut.webp`,
+    items: [
+      {
+        title: "Donut - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/donut/donut.webp`,
+      },
+    ],
+  },
+  romanarchitecture: {
+    title: "Roman Architecture",
+    coverImage: `${ASSET_BASE}/arts/romanarchitecture/Roman Architecture - AgX - High - Rev2.webp`,
+    items: [
+      {
+        title: "Roman Architecture - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/romanarchitecture/Roman Architecture - AgX - High - Rev2.webp`,
+      },
+      {
+        title: "Roman Architecture - No Lines - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/romanarchitecture/Roman Architecture - AgX - High - No Lines - Rev2.webp`,
+      },
+    ],
+  },
+  lowpolyforest: {
+    title: "Low Poly Forest",
+    coverImage: `${ASSET_BASE}/arts/lowpolyforest/forest - agx.webp`,
+    items: [
+      {
+        title: "Low Poly Forest - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/lowpolyforest/forest - agx.webp`,
+      },
+      {
+        title: "Low Poly Forest - Medium High Contrast - Filmic",
+        image: `${ASSET_BASE}/arts/lowpolyforest/forest - filmic.webp`,
+      },
+    ],
+  },
+  bedroom1: {
+    title: "Modern Bedroom",
+    coverImage: `${ASSET_BASE}/arts/bedroom1/bedroom1 - Cycles - AgX - Medium High.webp`,
+    items: [
+      {
+        title: "Modern Bedroom - Cycles - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/bedroom1/bedroom1 - Cycles - AgX - Medium High.webp`,
+      },
+      {
+        title: "Modern Bedroom - EVEE - High Contrast - Filmic",
+        image: `${ASSET_BASE}/arts/bedroom1/bedroom1 - Evee - Filmic - High.webp`,
+      },
+    ],
+  },
+  homeoffice: {
+    title: "Home Office",
+    coverImage: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Medium High Contrast.webp`,
+    items: [
+      {
+        title: "Home Office - Cycles - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Medium High Contrast.webp`,
+      },
+      {
+        title: "Home Office - Cycles - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Cycles - AgX - Base Contrast.webp`,
+      },
+      {
+        title: "Home Office - EVEE - AgX",
+        image: `${ASSET_BASE}/arts/homeoffice/homeoffice - Evee - AgX - Base Contrast.webp`,
+      },
+    ],
+  },
+  bedroom2: {
+    title: "Cozy Bedroom",
+    coverImage: `${ASSET_BASE}/arts/bedroom2/bedroom2 - Cycles - Agx - Medium High.webp`,
+    items: [
+      {
+        title: "Cozy Bedroom - Cycles - Medium High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/bedroom2/bedroom2 - Cycles - Agx - Medium High.webp`,
+      },
+    ],
+  },
+  cloud66: {
+    title: "Cloud 66",
+    coverImage: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - Filmic.webp`,
+    items: [
+      {
+        title: "Cloud 66 - Cycles - Filmic",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - Filmic.webp`,
+      },
+      {
+        title: "Cloud 66 - Cycles - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - AgX - High Contrast.webp`,
+      },
+      {
+        title: "Cloud 66 - Cycles - AgX",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Cycles - AgX.webp`,
+      },
+      {
+        title: "Cloud 66 - EVEE - Filmic",
+        image: `${ASSET_BASE}/arts/cloud66/cloud66 - Evee - Filmic.webp`,
+      },
+    ],
+  },
 };
 
 // --- INITIALIZATION AND NAVIGATION ---
@@ -148,7 +287,7 @@ function navigateTo(page) {
 
 // --- GAME SHOWCASE LOGIC ---
 
-// Helper function to render game screenshots (No changes)
+// Helper function to render game screenshots
 function renderGameScreenshots(gameId) {
   const game = gameData[gameId];
   const container = document.getElementById("gameScreenshots");
@@ -164,7 +303,7 @@ function renderGameScreenshots(gameId) {
   });
 }
 
-// Helper function to render the game grid (No changes)
+// Helper function to render the game grid
 function renderGameGrid() {
   const container = document.getElementById("gameGrid");
   container.innerHTML = "";
@@ -215,7 +354,7 @@ function renderGameGrid() {
   });
 }
 
-// NEW: Function to dynamically generate download buttons
+// Function to dynamically generate download buttons
 function renderDownloadButtons(game) {
   const container = document.getElementById("downloadButtonsContainer");
   container.innerHTML = ""; // Clear previous buttons
@@ -281,19 +420,14 @@ function showGameDetail(gameId) {
     "releasedDetail"
   ).innerHTML = `<strong>Released:</strong> ${game.released}`;
 
-  // Render Download Buttons (NEW CALL)
   renderDownloadButtons(game);
 
-  // Render screenshots
   renderGameScreenshots(gameId);
 
-  // Navigate to game detail page
   navigateTo("gameDetail");
 }
 
 // --- 3D ART SHOWCASE LOGIC ---
-
-// Helper function to render the art grid (No changes)
 function renderArtGrid() {
   const container = document.getElementById("artGrid");
   container.innerHTML = "";
@@ -319,8 +453,6 @@ function renderArtGrid() {
 }
 
 // --- CAROUSEL LOGIC ---
-
-// ... (Carousel functions remain the same)
 
 function openCarousel(collectionId) {
   currentArtCollectionId = collectionId;
@@ -375,8 +507,6 @@ function updateCarousel() {
 }
 
 // --- GLOBAL EVENT LISTENERS AND INITIALIZATION ---
-
-// ... (Event listeners remain the same)
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
