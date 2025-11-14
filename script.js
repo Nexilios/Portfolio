@@ -119,6 +119,16 @@ const gameData = {
 };
 
 const artCollections = {
+  medievalhouse: {
+    title: "Medieval House",
+    coverImage: `${ASSET_BASE}/arts/medievalhouse/Medieval House.webp`,
+    items: [
+      {
+        title: "Medieval House - High Contrast - AgX",
+        image: `${ASSET_BASE}/arts/medievalhouse/Medieval House.webp`,
+      },
+    ],
+  },
   sushi: {
     title: "Low Poly Sushi",
     coverImage: `${ASSET_BASE}/arts/sushi/Sushi - High Contrast - AgX.webp`,
